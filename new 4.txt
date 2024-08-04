@@ -1,0 +1,35 @@
+#Create a list "Details" of your name, DMR Section, a vector of marks obtained in Business Statistics and Operations Research
+Details <- list("Mahima", "B", c(40,50))
+
+# Write the command to access second element of vector marks
+Details[[3]][2]
+
+
+# Create a 30 x 30 matrix "A" with entries 0 (of 30 rows and 30 columns)
+A <- matrix(0,nrow=30,ncol=30)
+
+# For each entry, assign values based the product of two indices(row index, column index)
+
+for (i in 1:30)
+{ 
+for (j in 1:30)
+{ A[i,j]=i*j}
+}
+# Just show the upper left 10x10 chunk
+A[1:10,1:10]
+
+
+# Create a vector "u1" of length 30 filled with random normal values
+u1 <- rnorm(30)
+
+#Write a for loop that calculates the square of the first 10 elements of vector u1 and save in V1
+v1 <- rep(-10,10)
+for (i in 1:10)
+{ 
+  v1[i]= u1[i]*u1[i]
+}
+
+Marks <- c(85, 65,78,98)
+# Create a vector of marks obtained (out of 100) in 4 OMQT courses in year 1
+#Write an ifelse condition to print "Good" if it is above 75 otherwise print "Bad"
+ifelse(Marks>75,"Good","Bad")

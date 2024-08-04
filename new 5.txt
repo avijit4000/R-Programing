@@ -1,0 +1,63 @@
+#Exercise in R
+
+#1 Create a variable named "a" that stores the value 9
+a <- 9
+
+
+#2 Create another variable named a_new by adding 1 to a
+a_new <- a+1
+ 
+ 
+
+#3 Create anther variable first_1 that stores the value of Hello World
+first_1 <- "Hello World"
+
+
+
+#4 Check the class of above variables
+class(a)
+class(a_new)
+class(first_1)
+
+#5 Check the validity of following names .123,.abc, A%1,_class
+
+.123 <- 5
+.abc <- 5
+A%1 <- 5
+_class <- 5
+
+#6  Create a vector x containing 1, 2, 3, 4 
+x <- c(1,2,3,4)
+
+
+#7  Create a vector z with elements 2, NAME
+z <- c(2, "NAME")
+
+#8 Create a vector y containing numbers from 10:20
+y <- c(10:20)
+
+#9 find out the number of elements in vectors x and y
+
+length(x)
+
+
+#10 Create a vector v_colors of elements blue, yellow, green
+v_colors <- c("blue","yellow","green")
+
+#11 get the second element of v_colors
+v_colors[2]
+
+#12 get the first and third elements
+v_colors[c(1,3)]
+
+#13 get all the elements except the third
+v_colors[-3]
+
+#14 Reassign second element of the vector to Red
+v_colors[2]<- "Red"
+
+#15 Find the number of elements of v_colors
+length(v_colors)
+
+#16 Find the class of v_colors
+class(v_colors)

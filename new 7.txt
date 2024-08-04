@@ -1,0 +1,41 @@
+#setwd("C:/Users/IIM/Dropbox/IIM AMRITSAR/DataAnalyticsR/Data_Analytics_Self/Introduction")
+
+# Read "college.csv" in a data frame "college" 
+college <- read.csv("college.csv")
+
+str(college)
+head(college)
+
+
+#Save the rows 10 to 20 in df college2
+college2 <- college[c(10:20),]
+
+# Append the variable "Acceptance_Ratio" to df college2 as Accept/Apps
+college2$Acceptance_Ratio <- college2$Accept/college2$Apps
+str(college2)
+
+# Partition the screen in 1 row and 2 columns format
+par(mfrow=c(1,2))
+college$Private2 <- factor(college$Private)
+# Draw first plot of Apps(Y) versus Private(x) for college df
+plot(college$Private, college$Apps, col="red")
+plot(college$Private2, college$Apps, col="red")
+
+#Draw second plot of Outstate(Y) versus Private(x) for college df
+plot(college$Private2, college$Outstate, col="blue")
+
+# Find the mean of F.Undergrad for college df
+mean(college$F.Undergrad)
+
+# Partition the screen for one row and one column
+par(mfrow=c(1,1))
+
+# Create the barplot of the variable Private for college df
+freq <- table(college$Private)
+barplot(freq)
+
+#create histogram of Grad.Rate variable
+hist(college$Grad.Rate)
+
+#Create multiple scatter plots for Books, Personal and Expend Variables
+pairs(~Books+Personal+PhD,college)

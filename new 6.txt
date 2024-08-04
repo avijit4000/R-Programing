@@ -1,0 +1,64 @@
+
+#1 Read "cars.txt" in a data frame "cars" by reading the strings as characters
+cars <- read.csv("C:/Users/IIM/Dropbox/IIM AMRITSAR/DataAnalyticsR/Data_Analytics_Self/DMPA_2021/Introduction_Session1&2/R_Exercises_data/cars.txt" )
+
+#Alternate Way
+setwd("C:/Users/IIM/Dropbox/IIM AMRITSAR/DataAnalyticsR/Data_Analytics_Self/DMPA_2021/Introduction_Session1&2/R_Exercises_data")
+
+cars <- read.csv("cars.txt")
+str(cars)
+
+#2 what are the variables names of df cars
+names(cars)
+
+#3 Print first 10 rows of cars
+head(cars, 10)
+
+#4 Read the file cars.txt as cars2 by reading char as factors
+
+cars2 <- read.csv("cars.txt",stringsAsFactors = T )
+
+#5 How many factor variables are there in cars2
+str(cars2)
+# For questions 6-14, use cars dataframe
+#6 create a data frame cars.rsub by subseting the data for first 50 rows and find its summary
+cars.rsub <- cars[3:50,]
+summary(cars.rsub)
+
+#7 create a data frame cars.csub by subseting the data cars for last 3 columns and find its summary
+
+
+
+p <- ncol(cars)
+cars.csub <- cars[,(p-2):p]
+summary(cars.csub)
+
+#8 Select rows(2,5,10) and columns(1,3,6) from cars as df car_out
+car_out <- cars[c(2,5,10),c(1,3,6)]
+
+#9 save the df car_out in output.csv(*)
+write.csv(car_out, "output.csv")
+
+#10 Create a data frame car_smpg with records having mpg greater than its median value
+#What are the number of records in the df
+car_smpg <- cars[cars$mpg>median(cars$mpg),]
+dim(car_smpg)
+View(car_smpg)
+#11 what is the frequency distribution of cars$brand
+cars$brand2 <- factor(cars$brand)
+summary(cars$brand2)
+table(cars$brand)
+summary(cars$brand)
+
+#12 Create a variable brand_US indicating whether a car is from US or not
+brand_US <- rep(0, nrow(cars))
+brand_US[cars$brand == " US."]=1
+
+# 13 How many cars are not from US.
+sum(!brand_US)
+
+#14 Append the field brand_US to the dataframe cars and save df as cars_new
+cars_new <- cbind(cars,brand_US)
+str(cars_new)
+
+

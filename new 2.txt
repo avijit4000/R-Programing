@@ -1,0 +1,66 @@
+
+# Base Graphics
+setwd("C:/Users/IIM/Dropbox/IIM AMRITSAR/DataAnalyticsR/Data_Analytics_Self/DMPA_2021/Introduction_Session1&2/R_Exercises_data")
+Auto <- read.csv("Auto.csv",header=T)
+str(Auto)
+
+dim(Auto)
+names(Auto)
+
+# Additional Graphical and Numerical Summaries
+# Error
+plot(cylinders)
+
+#Append the data frame name
+plot(Auto$cylinders)
+plot(Auto$mpg)
+
+# Scatter-plot (First input becomes x axis)
+plot(Auto$cylinders, Auto$mpg)
+
+# Customize the scatter plot
+plot(Auto$cylinders, Auto$mpg,xlab="cylinders",ylab="MPG", main="MPG v/s Cylinders")
+
+# Box-plot
+class(Auto$cylinders)
+Auto$cylinders2=factor(Auto$cylinders)
+plot(Auto$cylinders2, Auto$mpg)
+
+#screen partition
+
+par(mfrow=c(2,2))
+
+plot(Auto$cylinders2, Auto$mpg, col="red")
+plot(Auto$cylinders2, Auto$mpg, col="red", varwidth=T)
+plot(Auto$cylinders2, Auto$mpg, col="red", varwidth=T, horizontal=T)
+plot(Auto$cylinders2, Auto$mpg, col="red", varwidth=T, xlab="cylinders", ylab="MPG")
+
+# Varwidth draw width of the box proportionate to the sample size.
+
+# Draw barchart
+sum_cyl <- table(Auto$cylinders)
+
+par(mfrow=c(1,2))
+barplot(sum_cyl,col="red")
+
+#https://bookdown.org/rdpeng/exdata/plotting-and-color-in-r.html
+# Histogram: Input should be numeric variable
+hist(Auto$mpg)
+hist(Auto$mpg,col=2)
+
+par(mfrow=c(1,1))
+hist(Auto$mpg,col=2,breaks=15)
+
+
+# Scatterplot
+
+plot(Auto$weight,Auto$mpg)
+
+#Multiple Scatterplot
+# error due to non numeric argument horsepower
+pairs(~ mpg + displacement + horsepower + weight + acceleration, Auto)
+
+str(Auto)
+pairs(~ mpg + displacement + weight + acceleration, Auto)
+
+
